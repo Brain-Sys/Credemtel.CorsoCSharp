@@ -12,6 +12,15 @@ namespace Credemtel.CorsoCSharp.Sintassi1
     {
         static void Main(string[] args)
         {
+            Persona p1 = new Persona();
+            p1.Nome = "glmdlkgmdflkh";
+            p1.Cognome = "aaaaaaaaaaaaaaaaaaa";
+
+            p1.SalvataggioFallito += P1_SalvataggioFallito;
+
+            p1.Salva();
+
+
             StringCollection elencoNomi = new StringCollection();
             elencoNomi.Add("Liborio");
             elencoNomi.Add("Mirko");
@@ -38,7 +47,7 @@ namespace Credemtel.CorsoCSharp.Sintassi1
 
             ArrayList list = new ArrayList();
             list.Add(34);
-            list.Add(77.54333);
+            // list.Add(77.54333);
             list.Add(true);
             list.Add(8);
             list.Add("fnkjgkjdbgkjdf");
@@ -64,6 +73,12 @@ namespace Credemtel.CorsoCSharp.Sintassi1
             Dictionary<string, Persona> anagrafe = new Dictionary<string, Persona>();
             anagrafe.Add("xyz", new Persona());
             // anagrafe.Add(555, true);
+        }
+
+        private static void P1_SalvataggioFallito(object sender, SalvataggioFallitoEventArgs e)
+        {
+            Persona p = sender as Persona;
+            Console.WriteLine($"Impossibile salvare {p.Nome} {p.Cognome}");
         }
     }
 }
