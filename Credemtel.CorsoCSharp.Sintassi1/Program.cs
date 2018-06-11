@@ -26,6 +26,10 @@ namespace Credemtel.CorsoCSharp.Sintassi1
             engine.Print(p2);
             new PrintDocument<Persona>().Print(p2);
 
+            Type type = Type.GetType("List");
+            type.MakeGenericType(new Type[] { typeof(string) });
+            Activator.CreateInstance(type);
+
             // PrintDocument<Fattura> y;
 
             Fattura f1 = new Fattura("001/2018");
