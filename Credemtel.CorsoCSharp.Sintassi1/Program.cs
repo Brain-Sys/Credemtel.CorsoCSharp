@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Credemtel.CorsoCSharp.Sintassi1.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -15,11 +16,20 @@ namespace Credemtel.CorsoCSharp.Sintassi1
             Persona p1 = new Persona();
             p1.Nome = "glmdlkgmdflkh";
             p1.Cognome = "aaaaaaaaaaaaaaaaaaa";
-
             p1.SalvataggioFallito += P1_SalvataggioFallito;
-
             p1.Salva();
+            Persona p2 = p1.Clone();
+            //ICloneable<Persona> inter = p1;
+            //Persona clone = inter.Clone();
 
+            PrintDocument<Persona> engine = new PrintDocument<Persona>();
+            engine.Print(p2);
+            new PrintDocument<Persona>().Print(p2);
+
+            // PrintDocument<Fattura> y;
+
+            Fattura f1 = new Fattura("001/2018");
+            SaveMemory.Clear<Fattura>(f1);
 
             StringCollection elencoNomi = new StringCollection();
             elencoNomi.Add("Liborio");
@@ -32,6 +42,8 @@ namespace Credemtel.CorsoCSharp.Sintassi1
             {
                 int index = elencoNomi.IndexOf("Mirko");
             }
+
+            // SaveMemory.ClearCollection<StringCollection>(elencoNomi);
 
             BitArray ba = new BitArray(20);
 

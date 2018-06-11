@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainObject.cs" />
+    <Compile Include="Fattura.cs" />
+    <Compile Include="Interfaces\ICloneable.cs" />
     <Compile Include="Persona.cs" />
+    <Compile Include="PrintDocument.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
