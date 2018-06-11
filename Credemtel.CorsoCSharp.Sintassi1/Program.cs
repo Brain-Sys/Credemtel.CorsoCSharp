@@ -1,4 +1,5 @@
-﻿using Credemtel.CorsoCSharp.Sintassi1.Interfaces;
+﻿using Credemtel.CorsoCSharp.Sintassi1.DBRepository;
+using Credemtel.CorsoCSharp.Sintassi1.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace Credemtel.CorsoCSharp.Sintassi1
     {
         static void Main(string[] args)
         {
+            var repo = new Repository<Fattura>();
+
             Persona p1 = new Persona();
             p1.Nome = "glmdlkgmdflkh";
             p1.Cognome = "aaaaaaaaaaaaaaaaaaa";
