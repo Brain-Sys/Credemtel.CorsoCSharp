@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Credemtel.CorsoCSharp.ApplicationLogic;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace Credemtel.CorsoCSharp.Sintassi2
     {
         static void Main(string[] args)
         {
+            DatabaseLoader loader = new DatabaseLoader();
+            loader.DipendeDaOS = new Action(salvataggio);
+
             string[] linee = new string[5];
 
             Action<int, int> puntatore = null;
@@ -63,6 +67,11 @@ namespace Credemtel.CorsoCSharp.Sintassi2
             //funz3.BeginInvoke(new AsyncCallback(hoFinito), 3);
 
             Console.ReadLine();
+        }
+
+        private static void salvataggio()
+        {
+            
         }
 
         static void writeLog()
