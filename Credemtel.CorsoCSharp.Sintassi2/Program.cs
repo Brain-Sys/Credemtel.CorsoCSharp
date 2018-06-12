@@ -1,11 +1,14 @@
 ﻿using Credemtel.CorsoCSharp.ApplicationLogic;
+using Credemtel.CorsoCSharp.ApplicationLogic.Exceptions;
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; // 100
 using System.Dynamic;
+using System.IO;
 using System.Linq;
-using System.Net.Http;
+using System.Net.Http;              // 0
 using System.Text;
 using System.Threading.Tasks;
+// using iTextSharp;
 
 namespace Credemtel.CorsoCSharp.Sintassi2
 {
@@ -13,22 +16,70 @@ namespace Credemtel.CorsoCSharp.Sintassi2
     {
         static void Main(string[] args)
         {
+            int g = 45;
+
+            try
+            {
+                File.ReadAllText("Q://Credemtel.txt");
+
+                double divide = 0.0;
+                double x = 67 / divide;
+            }
+            catch (FileNotFoundException ex)
+            {
+
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                // File.ReadAllText("Z://fnskjgndkfjngk.txt");
+                File.AppendAllText("E:\\Log.txt", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                File.AppendAllText("E:\\Log.txt", ex.Message);
+                // Logging.Write(ex.ToString());
+                // throw;
+            }
+
+            StreamReader reader = null;
+
+            try
+            {
+                reader = new StreamReader("Z:\\Dati.dat");
+                string xml = File.ReadAllText("Z:\\Dati.dat");
+            }
+            catch (Exception ex)
+            {
+                // Log
+            }
+
+            g = (reader != null) ? 23 : 6;
+            // g = reader ?? 4;
+
+            reader?.Close();
+            reader?.Dispose();
+            reader = null;
+
+
             Action a1 = new Action(() => { });
-            Action<bool> a2 = new Action<bool>((b) => {
+            Action<bool> a2 = new Action<bool>((b) =>
+            {
                 if (b == true) writeLog();
             });
 
-            Func<int, int> f3 = new Func<int, int>((int pippo) => {
+            Func<int, int> f3 = new Func<int, int>((int pippo) =>
+            {
                 return pippo * 4;
             });
 
-            Func<Uri, int, int> f4 = new Func<Uri, int, int>((url, number) => {
+            Func<Uri, int, int> f4 = new Func<Uri, int, int>((url, number) =>
+            {
                 HttpClient client = new HttpClient();
                 var bytes = client.GetByteArrayAsync(url).Result;
                 return bytes.Length + number;
             });
 
-            f4.Invoke(new Uri("http://www.google.com"), 890);
+            // f4.Invoke(new Uri("http://www.google.com"), 890);
 
             Func<List<DateTime>> x1 = getDates;
             List<DateTime> date = x1();
@@ -39,6 +90,18 @@ namespace Credemtel.CorsoCSharp.Sintassi2
 
             DatabaseLoader loader = new DatabaseLoader();
             loader.DipendeDaOS = new Action(salvataggio);
+            try
+            {
+                loader.Load(12345);
+            }
+            catch (InvalidPinException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (CredemtelDatabaseException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             string[] linee = new string[5];
 
@@ -101,7 +164,7 @@ namespace Credemtel.CorsoCSharp.Sintassi2
 
         private static void salvataggio()
         {
-            
+
         }
 
         static void writeLog()
