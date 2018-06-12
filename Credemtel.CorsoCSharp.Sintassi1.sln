@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.Sinta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.ApplicationLogic", "Credemtel.CorsoCSharp.ApplicationLogic\Credemtel.CorsoCSharp.ApplicationLogic.csproj", "{190F1570-8E04-4D00-9675-FB896415B208}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.Interfaces", "Credemtel.CorsoCSharp.Interfaces\Credemtel.CorsoCSharp.Interfaces.csproj", "{0C39C91E-0D55-4315-AD4B-DDC622E696FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.Repository", "Credemtel.CorsoCSharp.Repository\Credemtel.CorsoCSharp.Repository.csproj", "{C0A87D7D-1FD4-4499-B9F6-5748DD17BC04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.Sintassi3", "Credemtel.CorsoCSharp.Sintassi3\Credemtel.CorsoCSharp.Sintassi3.csproj", "{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{190F1570-8E04-4D00-9675-FB896415B208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{190F1570-8E04-4D00-9675-FB896415B208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{190F1570-8E04-4D00-9675-FB896415B208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C39C91E-0D55-4315-AD4B-DDC622E696FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C39C91E-0D55-4315-AD4B-DDC622E696FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C39C91E-0D55-4315-AD4B-DDC622E696FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C39C91E-0D55-4315-AD4B-DDC622E696FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A87D7D-1FD4-4499-B9F6-5748DD17BC04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A87D7D-1FD4-4499-B9F6-5748DD17BC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A87D7D-1FD4-4499-B9F6-5748DD17BC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A87D7D-1FD4-4499-B9F6-5748DD17BC04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

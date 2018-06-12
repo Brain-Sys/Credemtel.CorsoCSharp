@@ -16,7 +16,35 @@ namespace Credemtel.CorsoCSharp.Sintassi2
     {
         static void Main(string[] args)
         {
+            // DatabaseLoader loader = new DatabaseLoader();
+            // loader.Load(12345);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            AppDomain.CurrentDomain.FirstChanceException += (s, e) => Console.WriteLine(e.Exception.ToString());
+
             int g = 45;
+
+            string txt = File.ReadAllText("Q://Credemtel.txt");
 
             try
             {
@@ -156,6 +184,12 @@ namespace Credemtel.CorsoCSharp.Sintassi2
 
             Console.ReadLine();
         }
+
+        //private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+        //{
+        //    Console.WriteLine(e.Exception.ToString());
+        //    // e.Handled = true;
+        //}
 
         private static long bigNumbers(int x, int y, int z)
         {
