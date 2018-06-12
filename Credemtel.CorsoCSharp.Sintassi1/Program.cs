@@ -17,8 +17,9 @@ namespace Credemtel.CorsoCSharp.Sintassi1
             var repo = new Repository<Fattura>();
 
             Persona p1 = new Persona();
-            p1.Nome = "glmdlkgmdflkh";
+            p1.Nome = "Mario";
             p1.Cognome = "aaaaaaaaaaaaaaaaaaa";
+            p1.Log();
             p1.SalvataggioFallito += P1_SalvataggioFallito;
             p1.Salva();
             Persona p2 = p1.Clone();

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,8 +17,19 @@ namespace Credemtel.CorsoCSharp.Sintassi1
         public event EventHandler<SalvataggioFallitoEventArgs> SalvataggioFallito;
 
         public int ID { get; set; }
-        public string Nome { get; set; }
         public string Cognome { get; set; }
+        public DateTime BirthDate { get; set; }
+
+        private string nome;
+        public string Nome
+        {
+            get { return nome; }
+            set
+            {
+                // Fare qualcosa qui...
+                nome = value;
+            }
+        }
 
         public void Salva()
         {
@@ -76,6 +88,17 @@ namespace Credemtel.CorsoCSharp.Sintassi1
             clone.Cognome = this.Cognome;
 
             return clone;
+        }
+
+        public void Log()
+        {
+            // Aspect Oriented Programming
+            PropertyInfo[] props = this.GetType().GetProperties();
+
+            foreach (PropertyInfo pi in props)
+            {
+                object v = pi.GetValue(this);
+            }
         }
     }
 
