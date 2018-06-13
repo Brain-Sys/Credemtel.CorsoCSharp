@@ -75,6 +75,7 @@ namespace Credemtel.CorsoCSharp.WindowsApp
                     ++count;
                     if (sourceToken.IsCancellationRequested) break;
 
+                    // await File.WriteAllTextAsync("", "");
                     File.WriteAllText($@"E:\Database\{i}.pdf", DateTime.Now.ToString());
                 }
             }, sourceToken.Token);
@@ -96,6 +97,9 @@ namespace Credemtel.CorsoCSharp.WindowsApp
         {
             Service.Service1Client client = new Service.Service1Client();
             string value = await client.GetDataAsync(23);
+            //dynamic result = client.GetData(11);
+            //result.Nome = "";
+
             MessageBox.Show(value.ToString());
         }
     }
