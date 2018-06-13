@@ -36,5 +36,20 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+
+        <Button HorizontalAlignment="Left"
+                VerticalAlignment="Top" Margin="16"
+                x:Name="btnWcf"
+                Click="btnWcf_Click"
+                Padding="16,4"
+                Content="WCF" FontSize="48">
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0.0" Color="Red" />
+                    <GradientStop Offset="0.5" Color="Orange" />
+                    <GradientStop Offset="1.0" Color="Red" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </StackPanel>
 </Window>

@@ -73,5 +73,12 @@ namespace Credemtel.CorsoCSharp.WindowsApp
         {
             sourceToken.Cancel();
         }
+
+        private async void btnWcf_Click(object sender, RoutedEventArgs e)
+        {
+            Service.Service1Client client = new Service.Service1Client();
+            string value = await client.GetDataAsync(23);
+            MessageBox.Show(value.ToString());
+        }
     }
 }
