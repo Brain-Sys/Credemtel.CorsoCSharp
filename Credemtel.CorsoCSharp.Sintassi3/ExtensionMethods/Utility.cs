@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,11 @@ namespace Credemtel.CorsoCSharp.Sintassi3.ExtensionMethods
             {
                 return -1;
             }
+        }
+
+        public static bool IsBigMoreThan50K(this FileInfo file)
+        {
+            return file.Length > (50 * 1024);
         }
     }
 }

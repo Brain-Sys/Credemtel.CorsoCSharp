@@ -20,6 +20,8 @@ namespace Credemtel.CorsoCSharp.Sintassi1
         public string Cognome { get; set; }
         public DateTime BirthDate { get; set; }
 
+        string pdfTemplate = "..//Template.pdf";
+
         private string nome;
         public string Nome
         {
