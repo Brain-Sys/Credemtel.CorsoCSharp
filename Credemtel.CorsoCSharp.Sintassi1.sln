@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.Sintassi3", "Credemtel.CorsoCSharp.Sintassi3\Credemtel.CorsoCSharp.Sintassi3.csproj", "{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credemtel.CorsoCSharp.WindowsApp", "Credemtel.CorsoCSharp.WindowsApp\Credemtel.CorsoCSharp.WindowsApp.csproj", "{9EFD8A59-A734-49BE-A1E2-F877F639F402}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55DDEFA9-04F1-4DBD-AEB2-BD0D2CA23798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EFD8A59-A734-49BE-A1E2-F877F639F402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EFD8A59-A734-49BE-A1E2-F877F639F402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EFD8A59-A734-49BE-A1E2-F877F639F402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EFD8A59-A734-49BE-A1E2-F877F639F402}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,8 +7,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Credemtel.CorsoCSharp.Sintassi3
@@ -17,9 +20,58 @@ namespace Credemtel.CorsoCSharp.Sintassi3
     {
         static void Main(string[] args)
         {
+            int id = Thread.CurrentThread.ManagedThreadId;
+            //WebClient client = new WebClient();
+            ////string xml1 = client.DownloadString("");
+            //client.DownloadStringCompleted += Client_DownloadStringCompleted;
+            //client.DownloadStringAsync(new Uri("http://www.ilcittadino.it"));
+            test1();
+
+            //ThreadPool.QueueUserWorkItem(
+            //    new WaitCallback((o) => { test2(); }));
+
+            // Task.Run(() => test2());
+            Task t1 = new Task(() => test2());
+            // t1.Status = TaskStatus.
+            // t1.RunSynchronously();   // Gira nel thread della UI
+            t1.Start();
+            t1.ContinueWith((taskAppenaConcluso) => {
+                if (taskAppenaConcluso.Exception == null)
+                {
+                    test1();
+                }
+            });
+
+            Console.ReadLine();
+
+            List<string> marche = new List<string>() { "Honda", "Fiat", "Citroen" };
+            List<MarcaAuto> marche2 = new List<MarcaAuto>()
+            {
+                new MarcaAuto(){ Nome = "Honda" },
+                new MarcaAuto(){ Nome = "BMW" },
+                new MarcaAuto(){ Nome = "Audi" }
+            };
+
+            DirectoryInfo di = new DirectoryInfo(@"Z:\Database");
+            DirectoryInfo[] dirs = di.GetDirectories();
+
+            var lista1 = marche.Join(dirs, nm => nm, dir => dir.Name,
+                (ogg1, ogg2) => new
+                {
+                    NomeMarca = ogg1,
+                    NumeroPreventivi = ogg2.GetFiles("*.pdf")
+                }).ToList();
+
+            var lista2 = marche2.Join(dirs, nm => nm.Nome, dir => dir.Name,
+                (ogg1, ogg2) => new
+                {
+                    NomeMarca = ogg1.Nome,
+                    NumeroPreventivi = ogg2.GetFiles("*.pdf")
+                }).ToList();
+
             // Dim abc as new XDocument = <tag></tag>
 
-            DirectoryInfo di = new DirectoryInfo(@"C:\Windows\System32");
+            di = new DirectoryInfo(@"C:\Windows\System32");
             FileInfo[] files = di.GetFiles("*.*");
 
             Func<FileInfo, bool> puntatore = ricerca;
@@ -116,9 +168,40 @@ namespace Credemtel.CorsoCSharp.Sintassi3
             //}
         }
 
+        //private static void Client_DownloadStringCompleted(object sender,
+        //    DownloadStringCompletedEventArgs e)
+        //{
+        //    int id = Thread.CurrentThread.ManagedThreadId;
+        //    string xml = e.Result;
+        //    // this.NomeProgressBar.Value++;
+        //}
+
         private static bool ricerca(FileInfo fi)
         {
             return fi.Extension == ".dll";
+        }
+
+        private async static void test1()
+        {
+            HttpClient client = new HttpClient();
+            string xyz = await client.GetStringAsync
+                ("http://www.ilcittadino.it");
+        }
+
+        private async static Task<int> countTagAsync(string url, string tagName)
+        {
+            HttpClient client = new HttpClient();
+            string html = await client.GetStringAsync(url);
+
+            return new Random().Next(0, 900);
+        }
+
+        public static void test2()
+        {
+            while (true)
+            {
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+            }
         }
     }
 
@@ -132,5 +215,10 @@ namespace Credemtel.CorsoCSharp.Sintassi3
         }
 
         public string NOMEFILE { get; set; }
+    }
+
+    class MarcaAuto
+    {
+        public string Nome { get; set; }
     }
 }
