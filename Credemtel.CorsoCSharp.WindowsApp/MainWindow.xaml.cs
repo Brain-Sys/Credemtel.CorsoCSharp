@@ -55,6 +55,19 @@ namespace Credemtel.CorsoCSharp.WindowsApp
         {
             int count = 0;
 
+            // await Task.Run(new Action(asincrono));
+
+            Task t1 = new Task(() => { });
+            Task t2 = new Task(() => { });
+            Task t3 = new Task(() => { });
+
+            Task.WaitAll(new Task[] { t1, t2, t3 });
+            int index = Task.WaitAny(new Task[] { t1, t2, t3 });
+
+            Task nuovoTask = Task.WhenAll(new Task[] { t1, t2, t3 });
+            await nuovoTask.ContinueWith((t) => { });
+            nuovoTask.Start();
+
             await Task.Run(() =>
             {
                 for (int i = 0; i < n; i++)
@@ -67,6 +80,11 @@ namespace Credemtel.CorsoCSharp.WindowsApp
             }, sourceToken.Token);
 
             return count;
+        }
+
+        private void asincrono()
+        {
+
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
